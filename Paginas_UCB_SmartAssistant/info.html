@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+  <title>UCB Smart Assistant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Sora;
+      background-color: #FFF7D1;
+      color: #2e2e2e;
+    }
+    .sora-font {
+      font-family: "Sora", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .hero {
+      background-color: #8B5DFF;
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      margin: 20px 0 30px;
+      font-size: 1.2rem;
+    }
+
+    .cta-btn {
+      background-color: #FFF7D1;
+      color: #8B5DFF;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .cta-btn:hover{
+      background-color: #563A9C;
+      color: #FFF7D1;
+      cursor: pointer;
+    }
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      color: #6A42C2;
+      margin-bottom: 20px;
+    }
+
+    .features, .steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 280px;
+      text-align: center;
+    }
+
+    .cta-bottom {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .cta-bottom a:hover{
+      background-color: #563A9C;
+      color: #FFF7D1;
+      cursor: pointer;
+    }
+    .cta-bottom a {
+      background-color: #8B5DFF;
+      color: #FFF7D1;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .icons{
+      width:50px;
+      height:50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>UCB Smart Assistant</h1>
+    <p>Comande sua casa com a voz.</p>  <p> Organize sua rotina.</p> <p> Ganhe tempo para o que importa.</p>
+    <a href="#definition"><button class="cta-btn">Quero conhecer</button></a>
+  </div>
+
+  <div class="section">
+    <h2 id="definition">O que é o UCB Smart Assistant?</h2>
+    <p>O UCB Smart Assistant é a tecnologia que leva sua casa para o próximo nível. Com ele, você automatiza tarefas do dia a dia, controla luzes, eletrodomésticos e dispositivos inteligentes por comando de voz e ainda reforça a segurança da sua família — tudo de forma simples e intuitiva.</p>
+    <p>Ideal para quem valoriza praticidade e adora viver conectado, o UCB transforma qualquer ambiente em um lar mais inteligente, acolhedor e eficiente, do jeito que a sua rotina precisa.</p>
+  </div>
+
+  <div class="section">
+    <h2>Funcionalidades principais</h2>
+    <div class="features">
+      <div class="card">
+        <h3>Automação residencial</h3>
+        <img class="icons"src="../assets/smart_home.png" alt="ícone de casa inteligente">
+        <p>Controle luzes, ar-condicionado e mais com sua voz.</p>
+      </div>
+      <div class="card">
+        <h3>Gestão de tarefas</h3>
+        <img class="icons" src="../assets/calendar.png" alt="ícone de calendário">
+        <p>Organize seu dia com lembretes e agendamentos.</p>
+      </div>
+      <div class="card">
+        <h3>Integração inteligente</h3>
+        <img class="icons" src="../assets/devices.png" alt="ícone de dispositivos">
+        <p>Compatível com os principais dispositivos do mercado.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Como funciona?</h2>
+    <div class="steps">
+      <div class="card">
+        <h3>1. Fale</h3>
+        <p>Use sua voz para dar comandos.</p>
+      </div>
+      <div class="card">
+        <h3>2. Aja</h3>
+        <p>O UCB executa suas tarefas automaticamente.</p>
+      </div>
+      <div class="card">
+        <h3>3. Aproveite</h3>
+        <p>Mais conforto, tempo e controle no seu dia a dia.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section cta-bottom">
+    <a href="pricing.html">Comprar agora</a>
+  </div>
+</body>
+</html>
