@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
   <title>UCB Smart Assistant - Planos</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: "Sora", sans-serif;
       background-color: #FFF7D1;
       color: #2e2e2e;
     }
-
+    .sora-font {
+      font-family: "Sora", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
     .header {
       background-color: #563A9C;
       color: white;
@@ -67,12 +75,16 @@
     }
 
     .select-btn {
-      background-color: #8B5DFF;
-      color: white;
+      background-color: #563A9C;
+      color: #FFF7D1;
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
       cursor: pointer;
+    }
+    .select-btn:hover{
+      background-color: #8B5DFF;
+      color:#FFF7D1;
     }
 
     .checkout {
@@ -80,7 +92,7 @@
     }
 
     .checkout-btn {
-      background-color: #6A42C2;
+      background-color: #563A9C;
       color: white;
       border: none;
       padding: 15px 30px;
@@ -88,6 +100,22 @@
       border-radius: 8px;
       cursor: pointer;
     }
+    .checkout-btn:hover{
+      background-color: #8B5DFF;
+      color: #FFF7D1;
+    }
+    .plan.selected {
+      background-color: #8B5DFF;
+      color: white;
+      border-color: #6A42C2;
+    }
+
+    .plan.selected h2,
+    .plan.selected .price,
+    .plan.selected .features li {
+      color: white;
+    }
+
   </style>
 </head>
 <body>
@@ -107,6 +135,7 @@
         <ul class="features">
           <li>Comandos de voz</li>
           <li>Controle de luzes</li>
+          <li>Suporte</li>
           <li>1 perfil de usuário</li>
         </ul>
         <button class="select-btn">Selecionar</button>
@@ -117,8 +146,8 @@
         <ul class="features">
           <li>Comandos de voz</li>
           <li>Controle de luzes e temperatura</li>
-          <li>3 perfis de usuário</li>
           <li>Integração com agenda</li>
+          <li>3 perfis de usuário</li>
         </ul>
         <button class="select-btn">Selecionar</button>
       </div>
@@ -129,14 +158,31 @@
           <li>Todas as funções do Plus</li>
           <li>Controle de dispositivos de segurança</li>
           <li>Suporte prioritário</li>
+          <li>Setups personalizados</li>
         </ul>
         <button class="select-btn">Selecionar</button>
       </div>
     </div>
 
     <div class="checkout">
-      <button class="checkout-btn">Finalizar Compra</button>
+      <a href="main.html"><button class="checkout-btn">Finalizar Compra</button></a>
     </div>
   </div>
+
+  <script>
+    const selectButtons = document.querySelectorAll('.select-btn');
+    const plans = document.querySelectorAll('.plan');
+  
+    selectButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        // Remove seleção anterior
+        plans.forEach(plan => plan.classList.remove('selected'));
+        // Adiciona classe ao plano clicado
+        plans[index].classList.add('selected');
+      });
+    });
+  </script>
+
 </body>
+
 </html>
