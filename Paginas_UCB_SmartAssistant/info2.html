@@ -1,8 +1,207 @@
-<html>
-  <header></header>
-  <body>
-    <h1>Olá, mundo!</h1>
-    <h2>Gostaria de uma água</h2>
-    <p>Então toma sua água</p>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+  <title>UCB Smart Assistant - Dashboard</title>
+  <style>
+    body {
+    font-family: "Sora", sans-serif;
+    background-color: #FFF7D1;
+    color: #2e2e2e;
+    }
+    li{
+      list-style-type: none;
+    }
+    .sora-font {
+      font-family: "Sora", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .sidebar {
+      background-color: #8B5DFF;
+      color: white;
+      width: 60px;
+      height: 100vh;
+      z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      /* ↓ removemos display: none */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 60px;
+
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none; /* impede clique quando invisível */
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .sidebar ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* centraliza verticalmente */
+      align-items: center;
+      height: 100%; /* faz o ul ocupar toda a altura da sidebar */
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .main {
+      margin-left: 60px; /* mantém o recuo fixo */
+      padding: 20px;
+    }
+    .header {
+        background-color: #8B5DFF;
+        color: white;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+
+    .main h1 {
+        color: #563A9C;
+    }
+
+    .dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .voice-btn {
+        background-color: #6A42C2;
+        border: none;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .sidebar img{
+      width:30px;
+      height: 30px;
+      padding-bottom: 15px;
+    }
+    #mic_btn_icn{
+      width:30px;
+      height:30px;
+    }
+    .btn {
+      background-color: #563A9C;
+      color: #FFF7D1;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover{
+      background-color: #8B5DFF;
+      color:#FFF7D1;
+    }
+    .voice-btn:hover{
+      background-color: #8B5DFF;
+      color:#FFF7D1;
+    }
+    #menu-btn{
+      background-color: #8B5DFF;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="header">
+    <span>
+      <button id="menu-btn" class="btn" onclick="toggleMenu()"><img style="opacity: 0.5;width: 30px; height: 30px;" src="../assets/botao-de-menu.png" alt="menu"></button>
+      UCB Smart Assistant
+    </span>
+    <span>Carla</span>
+  </div>
+
+  <nav id="menu" class="sidebar">
+    <ul>
+      <li><img style="opacity: 0.5;" src="../assets/botao-de-menu.png" alt="menu"></li>
+      <li><img src="../assets/home_icon.png" alt="ícone página inicial"></li>
+      <li><img src="../assets/perfil.png" alt="ícone de perfil"></li>
+      <li><img src="../assets/engrenagem.png" alt="ícone de configurações"></li>
+    </ul>
+  </nav>
+
+  <div class="main">
+    <h1>Bem-vindo!</h1>
+    <div style="text-align: center; margin: 30px 0;">
+      <button onclick="mostrarPopup('Ouvindo...')" class="voice-btn"><img id="mic_btn_icn"src="../assets/microfone.png" alt="Botão Microfone"></button>
+    </div>
+    <div class="dashboard">
+      <div class="card">
+        <h3>Luzes da Sala</h3>
+        <p>Ligadas</p>
+      </div>
+      <div class="card">
+        <h3>Temperatura</h3>
+        <p>22°C</p>
+      </div>
+      <div class="card">
+        <h3>Próxima tarefa</h3>
+        <p>Reunião às 10h</p>
+      </div>
+      <div class="card">
+        <h3>Última movimentação em casa</h3>
+        <p>Pedro(Filho) - saiu às 06:48</p>
+      </div>
+      <div class="card">
+        <h3>TV da sala </h3>
+        <p>Desligada</p>
+      </div>
+      <div class="card">
+        <h3>Cortinas da sala </h3>
+        <button onclick="mostrarPopup('Cortina subindo...')" class="btn">Subir</button>
+        <button onclick="mostrarPopup('Cortina descendo...')" class="btn">Descer</button>
+      </div>
+      <div class="card">
+        <h3>Consumo de energia</h3>
+        <p>112 kWh</p>
+      </div>      
+      <div class="card">
+        <h3>Modo dormir</h3>
+        <button onclick="mostrarPopup('Modo dormir ativado!')" class="btn">Ativar</button>
+        <button onclick="mostrarPopup('Modo dormir desativado!')" class="btn">Desativar</button>
+      </div>      
+      <div class="card">
+        <button style="margin: 40px;"class="btn">+</button>
+      </div>      
+    </div>
+  </div>
+  <script>
+    function mostrarPopup(mensagem) {
+      alert(mensagem);
+    }
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+    
+  </script>  
+</body>
 </html>
